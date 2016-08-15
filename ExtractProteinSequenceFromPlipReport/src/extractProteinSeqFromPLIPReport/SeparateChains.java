@@ -159,6 +159,7 @@ public class SeparateChains {
                 trimmedMegaList.add(v);
             }
         });
+         System.out.println("trimmedMegaList: " + trimmedMegaList);
         FastaCreator.preprocessChains(trimmedMegaList, resultsFileNameString);
         // pass trimmedMegaList to FastaCreator for further processing
     }

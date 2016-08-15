@@ -65,9 +65,9 @@ public class FetchResidueFromFile {
                     // the end of the file and nothing more is done
                     if (lineString.length() > 40 && lineString.substring(1, 2)
                             .matches("\\d+")) {
-                        // if lineString is longer than 21 characters and
-                        // substring at indexes 2 and 3 are digits
-                        //                        chainString = lineString.substring(9, 10);
+                        // if lineString is longer than 40 characters and
+                        // substring at index 1 is a digit
+                        //    chainString = lineString.substring(9, 10);
                         String[] chainArray = lineString.split("\\|");
                         chainString = chainArray[3];
                         // store in chainString a substring within this
