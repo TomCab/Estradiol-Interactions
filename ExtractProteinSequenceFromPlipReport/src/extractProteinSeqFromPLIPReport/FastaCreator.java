@@ -254,55 +254,6 @@ public class FastaCreator {
         }
     }
 
-
-
-/*    
-    public static void createFastaStrings(String chainIdString, 
-            HashMap<Integer,String> chainXxMap, String resultsFileNameString) {
-        // this method creates the Aminoacid String in FASTA format
-        
-        String proteinIdString = StringUtils.substringBefore(StringUtils.
-                substringAfterLast(resultsFileNameString, File.separator), ".");
-        // extract proteinID from fastaFilePath. It is located between the last
-        // File.separator and before the "."
-        String fastaString = ">" + proteinIdString + ":" + chainIdString + "\n";
-        // create FASTA header for the sequence
-        ArrayList<Integer> aaNrArrayList = new ArrayList<>();
-        chainXxMap.forEach((k,v) -> {
-            // pull each AA position in the chain from chainXxMap and store them
-            // in aaNrArrayList
-            aaNrArrayList.add(k);
-        });
-        Collections.sort(aaNrArrayList);
-        // sort aaNrArrayList in natural order
-        int lastPositionInt = aaNrArrayList.size()-1;
-        // calculate the last position in aaNrArrayList 
-        int seqLengthInt = aaNrArrayList.get(lastPositionInt);
-        // get the entry at lastPositionInt in aaNrArrayList. It's the largest
-        // RESNR of all residues that interact with E2
-        String[] aaPositionsArray = new String[seqLengthInt];
-        // generate aaPositionsArray with length equal to the RESNR of the
-        // last AA contained in aaNrArrayList
-        Arrays.fill(aaPositionsArray, "X");
-        // fill all positions in aaPositionsArray with "X": FASTA code for
-        // arbitrary aminoacid in the sequence
-        chainXxMap.forEach((k,v) -> {
-            // overwrite index k of aaPositionsArray with corresponding 
-            // aminoacid v  
-            aaPositionsArray[k-1] = v;
-        });
-        for (int m = 0; m < aaPositionsArray.length; m++) {
-            // traverse through aaPositionsArray, concatenating each element
-            // to fastaString
-            fastaString = fastaString + aaPositionsArray[m];
-        }
-        fastaString = fastaString + "\n";
-        //add a line break to the end of the AA sequence
-        FileManagingService.writeFastaFile(fastaString, resultsFileNameString);
-        // pass sequence to be written to FASTA file
-    }
-*/
-    
     
     public static void createFastaStrings(String chainIdString, 
             HashMap<Integer,String> chainXxMap, String resultsFileNameString) {
@@ -338,23 +289,18 @@ public class FastaCreator {
             // aminoacid v  
             aaPositionsArray[k-1] = v;
         });
-        
         String aASeqString = "";
         for (int m = 0; m < aaPositionsArray.length; m++) {
             // traverse through aaPositionsArray, concatenating each element
             // to fastaString
             aASeqString = aASeqString + aaPositionsArray[m];
-//            fastaString = fastaString + aaPositionsArray[m];
         }
-        
         String trimmedAaSeqString = StringUtils.stripStart(aASeqString, "X");
-        
+        // remove all "X" before first interacting residue and store trimmed
+        // string in trimmedAaSeqString
         fastaString = fastaString + trimmedAaSeqString + "\n";
         // concatenate fastaString with aASeqString and add 
         // a line break to the end
-        
-        
-        
         FileManagingService.writeFastaFile(fastaString, resultsFileNameString);
         // pass sequence to be written to FASTA file
     }
