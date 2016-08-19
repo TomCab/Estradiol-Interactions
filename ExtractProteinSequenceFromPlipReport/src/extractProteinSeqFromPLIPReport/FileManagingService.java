@@ -150,7 +150,7 @@ public class FileManagingService {
                 .substringBeforeLast(resultsFileNameString, File.separator);
         // remove everything after last File.separator ("/" in Linux)
         String fullAaTxtNameString = partialAaTxtNameString + File.separator
-                + proteinIdString + "-" + chainIdString + ".txt";
+                + proteinIdString + "-" + chainIdString + "-non-redundant.txt";
         // create full name for file to be written
         Path TxtFilePath = Paths.get(fullAaTxtNameString);
         // create the PAth for the file to be written
@@ -169,7 +169,6 @@ public class FileManagingService {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        
 
     }
 }
