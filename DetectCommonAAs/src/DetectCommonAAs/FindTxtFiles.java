@@ -34,10 +34,10 @@ public class FindTxtFiles {
             // sorts and adds to List filesList the path of every File
             // in current directory containing String "-E2.txt" in its name
 
-            /*            
-            FetchResidueFromFile.fetcher(filesList, resultsPath);
-            // pass to FetchResidueFromFile.fetcher() the List of all paths
-            */
+            
+             StringFetcher.fetchStringFromFile(filesList, resultsPath);
+             // pass to StringFetcher.fetcher() the List of all paths
+             
 
         } catch (IOException e) {
             e.printStackTrace();
