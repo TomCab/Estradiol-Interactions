@@ -35,7 +35,7 @@ public class FindTxtFiles {
             // in current directory containing String "-E2.txt" in its name
 
             
-             StringFetcher.fetchStringFromFile(filesList, resultsPath);
+             StringFetcher.fetchStringFromFile(filesList, resultsPath, haystackDirString);
              // pass to StringFetcher.fetcher() the List of all paths
              
 
