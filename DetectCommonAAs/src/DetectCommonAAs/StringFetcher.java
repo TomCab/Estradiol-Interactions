@@ -29,7 +29,7 @@ public class StringFetcher {
 
         try {
             for (String fileString : filesList) {
-                ArrayList<String> chainArrayList = new ArrayList<>();
+                List<String> chainArrayList = new ArrayList<>();
                 ArrayList<String> positionArrayList = new ArrayList<>();
                 ArrayList<String> aa3LetterArrayList = new ArrayList<>();
                 ArrayList<String> aa1LetterArrayList = new ArrayList<>();
