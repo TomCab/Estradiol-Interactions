@@ -164,7 +164,8 @@ public class FileManagingService {
         try {
             BufferedWriter txtWriter = Files.newBufferedWriter(TxtFilePath,
                     StandardCharsets.UTF_8, StandardOpenOption.WRITE);
-            txtWriter.write(nonRedundantAaString);
+            txtWriter.write(proteinIdString + "-" + chainIdString + ","
+                    + nonRedundantAaString);
             txtWriter.close();
         } catch (IOException e) {
             e.printStackTrace();
