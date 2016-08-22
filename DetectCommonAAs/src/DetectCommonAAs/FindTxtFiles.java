@@ -11,7 +11,7 @@ public class FindTxtFiles {
 
     public static void fileFinderInDir(String haystackDirString,
             String resultsPath) {
-        // finderInHaystack() finds files containing the String
+        // finds files containing the String
         // "-non-redundant.txt" in its name in the directory to which
         // haystackDirString points and passes them on for further
         // processing
@@ -33,12 +33,8 @@ public class FindTxtFiles {
                     .forEach(filePath -> filesList.add(filePath.toString()));
             // sorts and adds to List filesList the path of every File
             // in current directory containing String "-E2.txt" in its name
-
-            
              StringFetcher.fetchStringFromFile(filesList, resultsPath, haystackDirString);
              // pass to StringFetcher.fetcher() the List of all paths
-             
-
         } catch (IOException e) {
             e.printStackTrace();
         }

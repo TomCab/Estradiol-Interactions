@@ -20,9 +20,12 @@ public class StringFetcher {
         // file
 
         String aaSeqString = "";
+        /*
+        // TODO pdbAndChainIdString can later be used in order to calculate
+        // frequencies of AAs, if needed
         String pdbAndChainIdString = "";
-        // String resultsFileNameString = ""; // FIXME Remove when certain it's
-        // not needed
+        */
+
         List<String> nonRedundantAaList = new ArrayList<>();
 
         try {
@@ -31,7 +34,6 @@ public class StringFetcher {
                 File inputFile = new File(fileString);
                 // create object file from String fileString in order to read
                 // its contents in
-
                 InputStream fileInputStream = new FileInputStream(inputFile);
                 // Create Object fileInputStream which holds an input
                 // stream with the content of file
@@ -44,9 +46,13 @@ public class StringFetcher {
                     // as long as the content of lineString is NOT null,
                     // it is searched if lineString is null, it means we have
                     // reached the end of the file and nothing more is done
+                    /*
+                    // TODO pdbAndChainIdString can later be used in order to
+                    // calculate frequencies of AAs, if needed
                     pdbAndChainIdString =
                             StringUtils.substringBefore(lineString, ",");
                     // store PDB-ID and Chain-ID in String pdbAndChainIdString
+                    */
                     aaSeqString = StringUtils.substringAfter(lineString, ",");
                     // store current pdbAndChainIdString's non-redundant AA
                     // sequence in aaSeqString
@@ -56,24 +62,14 @@ public class StringFetcher {
                 }
                 fileReader.close();
                 fileInputStream.close();
-
-                
-                
-
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        System.out.println("nonRedundantAaList: " + nonRedundantAaList);
-        System.out.println(nonRedundantAaList.size());
-        
-        
-        CommonAaDetector.detectCommonAAs(resultsPath,
-                nonRedundantAaList, haystackDirString);
+        CommonAaDetector.detectCommonAAs(resultsPath, nonRedundantAaList,
+                haystackDirString);
         // pass parameters with results for detection of common AAs
-        
     }
 }

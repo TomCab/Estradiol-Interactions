@@ -44,7 +44,8 @@ public class FileManagingService {
 
     public static void writeCommonAAs(String resultsPath, String commonAaString,
             String haystackDirString) {
-
+        // method writes AAs common to all tested strings
+        
         String inputDirString = StringUtils
                 .substringAfterLast(haystackDirString, File.separator);
         // store the name of input directory in inputDirString. If you've been
