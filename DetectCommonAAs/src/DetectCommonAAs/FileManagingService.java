@@ -72,6 +72,7 @@ public class FileManagingService {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.println("Detection of common aminoacids finished.");
     }
 
 }
